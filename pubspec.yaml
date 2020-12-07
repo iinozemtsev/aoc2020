@@ -1,0 +1,10 @@
+name: aoc_2020
+version: 0.0.1-dev
+author: Ivan Inozemtsev <ivan.inozemtsev@gmail.com>
+description: advent of code solutions
+
+environment:
+  sdk: '>=2.12.0-0 <3.0.0'
+
+dev_dependencies:
+  test: ^1.16.0-nullsafety

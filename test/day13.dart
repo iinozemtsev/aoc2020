@@ -60,13 +60,28 @@ int part2(String input) {
     }
   }
 
+  // var nums = <int>[];
+  // for (var bus in buses) {
+  //   if (bus.id != null) {
+  //     nums.add(bus.id! + bus.offset);
+  //   }
+  // }
+  // var result = lcm(nums);
+  // return result;
   var candidate = maxBus!.id!;
+  // print('${maxBus.id!} ${maxBus.offset}');
   while (true) {
-    if (matchesPart2(candidate, buses)) {
-      return candidate;
+    if (matchesPart2(candidate - maxBus.offset, buses)) {
+      return candidate - maxBus.offset;
     }
-    candidate++;
+    candidate += maxBus.id!;
   }
+}
+
+int lcm(List<int> nums) => nums.fold(1, (r,e) =>  lcm2(r,e));
+
+int lcm2(int num1, int num2) {
+  return num1 ~/ num2.gcd(num1) *  num2;
 }
 
 bool matchesPart2(int candidate, List<Bus> buses) {
